@@ -1,0 +1,31 @@
+{
+  "name": "monorepo-pkg-manager",
+  "version": "1.0.0",
+  "description": "This a public library for manage the package installing on monorepos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RadamantiumX/monorepo-pkg-manager.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RadamantiumX/monorepo-pkg-manager/issues"
+  },
+  "homepage": "https://github.com/RadamantiumX/monorepo-pkg-manager#readme",
+  "dependencies": {
+    "@inquirer/prompts": "7.10.1",
+    "ansi-colors": "4.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.5"
+  }
+}
