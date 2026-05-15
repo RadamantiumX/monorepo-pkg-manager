@@ -5,3 +5,5 @@ export interface PromptValues {
   depsConfirm: boolean;
   finishConfirm: boolean;
 }
+
+export type State = "success" | "loading" | "exit" | "error";
