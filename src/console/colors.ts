@@ -8,21 +8,25 @@ import type { State } from "../types";
  */
 
 export function colorConsole(message: string, state: State): void {
-  switch (state) {
-    case "success":
-      console.log(colors.bgGreen(message));
-      break;
-    case "loading":
-      console.log(colors.bgYellow(message));
-      break;
-    case "exit":
-      console.log(colors.bgMagenta(message));
-      break;
-    case "error":
-      console.log(colors.bgRed(message));
-      break;
-    default:
-      console.log(message);
+  try {
+    switch (state) {
+      case "success":
+        console.log(colors.bgGreen(message));
+        break;
+      case "loading":
+        console.log(colors.bgYellow(message));
+        break;
+      case "exit":
+        console.log(colors.bgMagenta(message));
+        break;
+      case "error":
+        console.log(colors.bgRed(message));
+        break;
+      default:
+        console.log(message);
+    }
+    return;
+  } catch (error) {
+    throw new Error(`Error on proccessing inputs: ${error}`);
   }
-  return;
 }

@@ -1,7 +1,7 @@
 // @ts-check
 
 import js from "@eslint/js";
-import { defineConfig } from "eslint/config";
+import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 // import globals from "globals"
 
@@ -13,6 +13,18 @@ export default defineConfig(
       "no-unused-vars": "warn",
       "prefer-const": "warn",
       "@typescript-eslint/no-unused-vars": "warn",
+      "vitest/no-focused-tests": "off"
     },
+    ignores:["**/test/**", "**/*.test.js", "**/.spec.js", "**/*.test.ts", "test"],
+    files: ["**/*.test.ts"]
+    
+    
   },
+  globalIgnores([
+    "!node_modules/",
+    "node_modules/*",
+    "!node_modules/mylibrary/",
+    "test/**/*"
+  ]),
+  
 );

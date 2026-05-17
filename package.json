@@ -4,7 +4,7 @@
   "description": "This a public library for manage the package installing on monorepos.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "prepare": "husky",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
