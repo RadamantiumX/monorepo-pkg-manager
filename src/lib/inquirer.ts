@@ -9,10 +9,10 @@ import { colorConsole } from "../console/colors";
  */
 export async function promptHandler(): Promise<PromptValues | void> {
   try {
-    const selectFolder = await select({
-      message: "",
-      choices: [],
-    });
+    // const selectFolder = await select({
+    //   message: "",
+    //   choices: [],
+    // });
     const selectPkgManager = await select(options.pkg_manager);
     const inputPkg = await input(options.pkg);
     const depsConfirm = await confirm(options.deps);
@@ -22,7 +22,7 @@ export async function promptHandler(): Promise<PromptValues | void> {
       return;
     }
     return {
-      selectFolder,
+      //selectFolder,
       selectPkgManager,
       inputPkg,
       depsConfirm,
