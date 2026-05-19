@@ -1,7 +1,7 @@
 import { spawn } from "node:child_process";
 import { colorConsole } from "./console/colors";
 
-export function spawnExe(command: string, args: string, flags: string) {
+export function spawnProcess(command: string, args: string, flags: string) {
   try {
     const cliSpawn = spawn(command, [args, flags], {
       stdio: "overlapped",
@@ -12,7 +12,9 @@ export function spawnExe(command: string, args: string, flags: string) {
       return;
     });
 
-    // Check if it's neccesary stderr & on ('close')
+    cliSpawn.on("exit", () => {
+      colorConsole("The process succesfuly finish", "success");
+    });
 
     return cliSpawn.stdout;
   } catch (error) {
