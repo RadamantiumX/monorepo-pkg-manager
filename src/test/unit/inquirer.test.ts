@@ -2,7 +2,7 @@ import { it, vi, describe, expect } from "vitest";
 import { promptHandler } from "../../lib/inquirer";
 import { select, input, confirm } from "@inquirer/prompts";
 import options from "../../lib/options-choices";
-import { inquirerReturn } from "../mock/mockReturnValues";
+import { inquirerReturn } from "../mock/mocking-values";
 
 // Mocking the @inquirer/prompts used methods
 vi.mock("@inquirer/prompts", () => ({
