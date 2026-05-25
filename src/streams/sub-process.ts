@@ -1,8 +1,8 @@
 import { spawn } from "node:child_process";
-import { colorConsole } from "../console/colors";
 import type { PackageManager } from "../types";
 import { optionsCofig } from "./spawn-options";
 import { TR_CMD } from "../constants";
+import { SubProcessError, NodeChildProcessError } from "../common/errors";
 import type Stream from "node:stream";
 
 /**
@@ -17,14 +17,12 @@ export function getWorkSpaceFolders(): Stream.Readable | null {
     const cliSpawn = spawn(TR_CMD.ls, [TR_CMD.flag, TR_CMD.jq], optionsCofig);
 
     cliSpawn.stderr?.on("error", (error) => {
-      colorConsole(`Initial process crashed: ${error}`, "error");
-      return;
+      throw new NodeChildProcessError(`Error on Child Process: ${error}`);
     });
 
     return cliSpawn?.stdout;
   } catch (error) {
-    colorConsole(`Unexpected error appears: ${error}`, "error");
-    throw new Error(`Error on: ${error}`);
+    throw new SubProcessError(`Error on Process: ${error}`);
   }
 }
 
@@ -47,17 +45,11 @@ export function onFinishPrompts(
     const cliSpawn = spawn(command, [args, flags], optionsCofig);
 
     cliSpawn.stderr?.on("error", (error) => {
-      colorConsole(`Error on child process: ${error}`, "error");
-      return;
-    });
-
-    cliSpawn.on("exit", () => {
-      colorConsole("The process succesfuly finish", "success");
+      throw new NodeChildProcessError(`Error on Child Process: ${error}`);
     });
 
     return;
   } catch (error) {
-    colorConsole(`Unexpected error appears: ${error}`, "error");
-    throw new Error(`Error on: ${error}`);
+    throw new SubProcessError(`Error on Process: ${error}`);
   }
 }
