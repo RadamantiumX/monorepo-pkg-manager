@@ -1,6 +1,6 @@
 export interface PromptValues {
-  selectFolder: string | unknown;
-  selectPkgManager: string | unknown;
+  selectFolder: string;
+  selectPkgManager: string;
   inputPkg: string;
   depsConfirm: boolean;
   finishConfirm: boolean;
