@@ -12,8 +12,9 @@ vi.mock("@inquirer/prompts", () => ({
 }));
 
 describe("promptHandler", () => {
-  it("should proccess correctly the line user interface", async () => {
+  it("should process correctly the user prompt", async () => {
     // Mocked the currents values
+    //  ‼️Use the select value "Once" to avoid duplicates
     vi.mocked(select).mockResolvedValueOnce("api");
     vi.mocked(select).mockResolvedValueOnce("npm");
     vi.mocked(input).mockResolvedValue("inquirer");
