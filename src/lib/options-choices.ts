@@ -1,8 +1,8 @@
 /**
  * Inquirer/Prompt Config options
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const options: any = {
+
+const options = {
   ws_folders: {
     message: "Select a workspace folder",
     choices: [],
