@@ -1,9 +1,9 @@
 import { it, describe, expect } from "vitest";
 import { commandAssembly } from "../../common/command";
-import { mockingCommandArgs } from "../mock/mocking-values";
+import { mockingCommandArgs, mockCommandReturn } from "../mock/mocking-values";
 
 describe("commandAssembly", () => {
-  mockingCommandArgs.map((item) => {
+  mockingCommandArgs.map((item, key) => {
     it("should return a object with the correct arguments", () => {
       expect(
         commandAssembly(
@@ -12,7 +12,7 @@ describe("commandAssembly", () => {
           item.inputPkg,
           item.depsConfirm,
         ),
-      );
+      ).toStrictEqual(mockCommandReturn[key]);
     });
   });
 });
