@@ -8,9 +8,9 @@ import type { PromptValues } from "./types/index";
 
 const turbo = getWorkSpaceFolders();
 
-turbo?.on("data", wsMainInterface);
+turbo?.on("data", monoRepoPackageManager);
 
-export async function wsMainInterface(data: any) {
+export async function monoRepoPackageManager(data: any) {
   try {
     parsedStreamData(data);
     const {
